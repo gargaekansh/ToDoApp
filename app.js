@@ -7,13 +7,38 @@ var app = express();
 
 var port = process.env.PORT || 3000;
 
+//"mongodb://user:password@mongodb-cluster:27000/dbname?replicaSet=&amp;authSource=$external&amp;authMechanism=PLAIN&amp;ssl=true&amp;sslVerifyCertificate=false&amp;maxPoolSize=5&amp;waitQueueMultiple=20&amp;readPreference=PrimaryPreferred" />
+
  let mongoUrlK8s = `mongodb://${process.env.USER_NAME}:${process.env.USER_PWD}@${process.env.DB_URL}`
+
+ console.log ('mongoUrlK8s =' + mongoUrlK8s);
+
+ // headless service - mongodb://user:pwd@mongodb-headless.svc.cluster.local:27017/dbname_?authSource=admin&replicaSet=rs0
+
+ // Create the connection string with all replica set members
+ //const uri = `mongodb://${username}:${password}@mongo-0.mongo-svc.default.svc.cluster.local:27017/${database}?replicaSet=${replicaSetName},directConnection=true`;
+
+ // Use the StatefulSet service name to reach any MongoDB pod
+// const fqdn = 'mongo-0.mongo.default.svc.cluster.local:27017';
+// const port = '27017';
+const databasename =process.env.MONGO_DB;
+// MongoDB StatefulSet replica set name
+    //const replicaSetName = 'rs0';
+
+
+
+ const mongoUrlK8sheadlessService = `mongodb://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_HOSTNAME}:${process.env.MONGO_PORT}/${process.env.MONGO_DB}?replicaSet=${process.env.MONGO_REPLICASET}&authSource=admin`;
+
+// let mongoUrlK8sheadlessService = `mongodb://${process.env.USER_NAME}:${process.env.USER_PWD}@${process.env.DB_URL}/${process.env.Database_Name}?replicaSet=${process.env.replSetName},directConnection=true;readPreference=PrimaryPreferred`;
+
+console.log ('mongoUrlK8sheadlessService =' + mongoUrlK8sheadlessService);
 
 // use when starting application locally with node command
 //let mongoUrlLocal = "mongodb://admin:password@localhost:27017";
 
 //db connection with mongoose(mongodb)
- mongoose.connect(mongoUrlK8s, {
+ mongoose.connect(mongoUrlK8sheadlessService, {
+    // dbName:${process.env.MONGO_DB},
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
