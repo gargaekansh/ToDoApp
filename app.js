@@ -166,11 +166,11 @@ app.get("*", (req, res)=>{
 //listen on port 3000
 app.listen(port, (error)=>{
     if(error){
-        console.log("Issue in connecting to the server");
+        console.log("Issue in connecting to the server ");
 
         //http://localhost:3000/
     }
     else{
-        console.log("Successfully connected to the server");
+        console.log("Successfully connected to the server . server running on port 3000 . http://localhost:3000/");
     }
 })
