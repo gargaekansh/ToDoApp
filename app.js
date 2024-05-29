@@ -9,9 +9,22 @@ var port = process.env.PORT || 3000;
 
 //"mongodb://user:password@mongodb-cluster:27000/dbname?replicaSet=&amp;authSource=$external&amp;authMechanism=PLAIN&amp;ssl=true&amp;sslVerifyCertificate=false&amp;maxPoolSize=5&amp;waitQueueMultiple=20&amp;readPreference=PrimaryPreferred" />
 
- let mongoUrlK8s = `mongodb://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@${process.env.DB_URL}`
+// //  let mongoUrlK8s = `mongodb://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@${process.env.DB_URL}`
 
- console.log ('mongoUrlK8s =' + mongoUrlK8s);
+// //  console.log ('mongoUrlK8s =' + mongoUrlK8s);
+
+
+// //  //TODO:: Remove after testing 
+
+// //  try {
+// //     await mongoose.connect(mongoUrlK8s, {
+// //         dbName:process.env.MONGO_DB,
+// //         useNewUrlParser: true,
+// //         useUnifiedTopology: true
+// //     });
+// //   } catch (error) {
+// //     console.log(error);
+// //   }
 
  // headless service - mongodb://user:pwd@mongodb-headless.svc.cluster.local:27017/dbname_?authSource=admin&replicaSet=rs0
 
