@@ -9,7 +9,7 @@ var port = process.env.PORT || 3000;
 
 //"mongodb://user:password@mongodb-cluster:27000/dbname?replicaSet=&amp;authSource=$external&amp;authMechanism=PLAIN&amp;ssl=true&amp;sslVerifyCertificate=false&amp;maxPoolSize=5&amp;waitQueueMultiple=20&amp;readPreference=PrimaryPreferred" />
 
- let mongoUrlK8s = `mongodb://${process.env.USER_NAME}:${process.env.USER_PWD}@${process.env.DB_URL}`
+ let mongoUrlK8s = `mongodb://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@${process.env.DB_URL}`
 
  console.log ('mongoUrlK8s =' + mongoUrlK8s);
 
