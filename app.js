@@ -14,83 +14,83 @@ var port = process.env.PORT || 3000;
 
 /***********TEST MONGO CONNECTION CODE ********* */
 
-let MongoClient1 = require('mongodb').MongoClient;
-let MongoClient2 = require('mongodb').MongoClient;
-let MongoClient3 = require('mongodb').MongoClient;
-//let MongoClient4 = require('mongodb').MongoClient;
+// let MongoClient1 = require('mongodb').MongoClient;
+// let MongoClient2 = require('mongodb').MongoClient;
+// let MongoClient3 = require('mongodb').MongoClient;
+// //let MongoClient4 = require('mongodb').MongoClient;
 
-try {
+// try {
 
-    // MongoClient1.connect("mongodb://mongouser:mongopassword@mongo-0.mongo.default.svc.cluster.local:27017/todos", function (err, db) {
-        MongoClient1.connect("mongodb://mongo-0.mongo.default.svc.cluster.local:27017/todos", function (err, db) {
+//     // MongoClient1.connect("mongodb://mongouser:mongopassword@mongo-0.mongo.default.svc.cluster.local:27017/todos", function (err, db) {
+//         MongoClient1.connect("mongodb://mongo-0.mongo.default.svc.cluster.local:27017/todos", function (err, db) {
 
-        if (err) {
-            console.log("Connection 1 Error" +  err)
-            throw err;
-        }
+//         if (err) {
+//             console.log("Connection 1 Error" +  err)
+//             throw err;
+//         }
 
-        console.log("I CAN CONNECT Connection 1 !!")
+//         console.log("I CAN CONNECT Connection 1 !!")
 
-    });
+//     });
 
-}
-catch (e) {
+// }
+// catch (e) {
 
-    console.log("Error Connection 1 !!")
-    console.log(e);
+//     console.log("Error Connection 1 !!")
+//     console.log(e);
 
-}
-
-
-try {
-
-    MongoClient2.connect("mongodb://mongouser:mongopassword@mongo.default.svc.cluster.local:27017/todos", function (err, db) {
-
-        if (err) {
-            console.log("Connection 2 Error" +  err)
-            throw err;
-        }
-
-        console.log("I CAN CONNECT Connection 2 !!")
-
-    });
-
-}
-catch (e) {
-
-    console.log("Error Connection 2 !!")
-
-    console.log(e);
-
-}
+// }
 
 
-try {
+// try {
 
-    MongoClient3.connect("mongodb+srv://mongouser:mongopassword@mongo.default.svc.cluster.local/todos", function (err, db) {
+//     MongoClient2.connect("mongodb://mongouser:mongopassword@mongo.default.svc.cluster.local:27017/todos", function (err, db) {
 
-        if (err) {
-            console.log("Connection 3 Error" +  err)
-            throw err;
-        }
+//         if (err) {
+//             console.log("Connection 2 Error" +  err)
+//             throw err;
+//         }
 
-        console.log("I CAN CONNECT Connection 3 !!")
+//         console.log("I CAN CONNECT Connection 2 !!")
 
-    });
+//     });
 
-}
-catch (e) {
+// }
+// catch (e) {
 
-    console.log("Error Connection 3 !!")
+//     console.log("Error Connection 2 !!")
 
-    console.log(e);
+//     console.log(e);
 
-}
+// }
+
+
+// try {
+
+//     MongoClient3.connect("mongodb+srv://mongouser:mongopassword@mongo.default.svc.cluster.local/todos", function (err, db) {
+
+//         if (err) {
+//             console.log("Connection 3 Error" +  err)
+//             throw err;
+//         }
+
+//         console.log("I CAN CONNECT Connection 3 !!")
+
+//     });
+
+// }
+// catch (e) {
+
+//     console.log("Error Connection 3 !!")
+
+//     console.log(e);
+
+// }
 
 
 try {
     // const mongoUrlK8sheadlessService = `mongodb://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_HOSTNAME}:${process.env.MONGO_PORT}/${process.env.MONGO_DB}?replicaSet=${process.env.MONGO_REPLICASET}&authSource=admin`;
-    const mongoUrlK8sheadlessService = `mongodb://${process.env.MONGO_HOSTNAME}:${process.env.MONGO_PORT}/${process.env.MONGO_DB}?replicaSet=${process.env.MONGO_REPLICASET}`;
+    const mongoUrlK8sheadlessService = `mongodb://${process.env.MONGO_HOSTNAME}:${process.env.MONGO_PORT}/${process.env.MONGO_DB}\_?replicaSet=${process.env.MONGO_REPLICASET}`;
 
     // let mongoUrlK8sheadlessService = `mongodb://${process.env.USER_NAME}:${process.env.USER_PWD}@${process.env.DB_URL}/${process.env.Database_Name}?replicaSet=${process.env.replSetName},directConnection=true;readPreference=PrimaryPreferred`;
 
@@ -118,7 +118,12 @@ catch (e) {
 
 
 try {
-    let mongoUrlK8sheadlessService5 = `mongodb://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_HOSTNAME}:${process.env.MONGO_PORT}/${process.env.MONGO_DB}?&retryWrites=true&w=majority`;
+
+    //DB_URL
+
+    // let mongoUrlK8sheadlessService5 = `mongodb://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_HOSTNAME}:${process.env.MONGO_PORT}/${process.env.MONGO_DB}?&retryWrites=true&w=majority`;
+
+    let mongoUrlK8sheadlessService5 = `mongodb+srv://${process.env.DB_URL}/${process.env.MONGO_DB}?&ssl=false?`;
 
     // let mongoUrlK8sheadlessService = `mongodb://${process.env.USER_NAME}:${process.env.USER_PWD}@${process.env.DB_URL}/${process.env.Database_Name}?replicaSet=${process.env.replSetName},directConnection=true;readPreference=PrimaryPreferred`;
 
@@ -147,8 +152,8 @@ catch (e) {
 
 
 try {
-    let mongoUrlK8sheadlessService6 = `mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_HOSTNAME}:${process.env.MONGO_PORT}/${process.env.MONGO_DB}?replicaSet=${process.env.MONGO_REPLICASET}&retryWrites=true&w=majority&authSource=admin`;
-
+    // let mongoUrlK8sheadlessService6 = `mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_HOSTNAME}:${process.env.MONGO_PORT}/${process.env.MONGO_DB}?replicaSet=${process.env.MONGO_REPLICASET}&retryWrites=true&w=majority&authSource=admin`;
+    let mongoUrlK8sheadlessService6 = `mongodb+srv://${process.env.DB_URL}/${process.env.MONGO_DB}?&ssl=false?authSource=admin`;
     // let mongoUrlK8sheadlessService = `mongodb://${process.env.USER_NAME}:${process.env.USER_PWD}@${process.env.DB_URL}/${process.env.Database_Name}?replicaSet=${process.env.replSetName},directConnection=true;readPreference=PrimaryPreferred`;
 
     console.log('mongoUrlK8sheadlessService =' + mongoUrlK8sheadlessService6);
@@ -174,32 +179,32 @@ catch (e) {
 }
 
 
-try {
-    let mongoUrlK8sheadlessService7 = `mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_HOSTNAME}:${process.env.MONGO_PORT}/?replicaSet=${process.env.MONGO_REPLICASET}&authSource=admin`;
+// try {
+//     let mongoUrlK8sheadlessService7 = `mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_HOSTNAME}:${process.env.MONGO_PORT}/?replicaSet=${process.env.MONGO_REPLICASET}&authSource=admin`;
 
-    // let mongoUrlK8sheadlessService = `mongodb://${process.env.USER_NAME}:${process.env.USER_PWD}@${process.env.DB_URL}/${process.env.Database_Name}?replicaSet=${process.env.replSetName},directConnection=true;readPreference=PrimaryPreferred`;
+//     // let mongoUrlK8sheadlessService = `mongodb://${process.env.USER_NAME}:${process.env.USER_PWD}@${process.env.DB_URL}/${process.env.Database_Name}?replicaSet=${process.env.replSetName},directConnection=true;readPreference=PrimaryPreferred`;
 
-    console.log('mongoUrlK8sheadlessService =' + mongoUrlK8sheadlessService7);
+//     console.log('mongoUrlK8sheadlessService =' + mongoUrlK8sheadlessService7);
 
 
 
-    //db connection with mongoose(mongodb)
-    mongoose4.connect(mongoUrlK8sheadlessService7, {
-        // dbName:${process.env.MONGO_DB},
-        useNewUrlParser: true,
-        useUnifiedTopology: true
-    });
+//     //db connection with mongoose(mongodb)
+//     mongoose4.connect(mongoUrlK8sheadlessService7, {
+//         // dbName:${process.env.MONGO_DB},
+//         useNewUrlParser: true,
+//         useUnifiedTopology: true
+//     });
 
-    console.log("I CAN CONNECT Connection 7 !!")
+//     console.log("I CAN CONNECT Connection 7 !!")
 
-}
-catch (e) {
+// }
+// catch (e) {
 
-    console.log("Error Connection 7 !!")
+//     console.log("Error Connection 7 !!")
 
-    console.log(e);
+//     console.log(e);
 
-}
+// }
 
 
 try {
@@ -308,6 +313,11 @@ var todoSchema = new mongoose.Schema({
 });
 
 var Todo = mongoose.model("Todo", todoSchema);
+
+console.log("host" + Todo.db.host); // localhost
+console.log("port " + Todo.db.port); // 27017
+console.log("db.name" + Todo.db.name); // myDatabase
+
 
 
 //routes
