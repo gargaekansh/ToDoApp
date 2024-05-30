@@ -3,6 +3,7 @@ var bodyParser = require('body-parser');
 var mongoose1 = require('mongoose');
 var mongoose2 = require('mongoose');
 var mongoose3 = require('mongoose');
+var mongoose4 = require('mongoose');
 
 var app = express();
 
@@ -14,6 +15,7 @@ var port = process.env.PORT || 3000;
 let MongoClient1 = require('mongodb').MongoClient;
 let MongoClient2 = require('mongodb').MongoClient;
 let MongoClient3 = require('mongodb').MongoClient;
+//let MongoClient4 = require('mongodb').MongoClient;
 
 try {
 
@@ -141,7 +143,7 @@ catch (e) {
 
 
 try {
-    let mongoUrlK8sheadlessService6 = `mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_HOSTNAME}:${process.env.MONGO_PORT}/${process.env.MONGO_DB}?replicaSet=${process.env.MONGO_REPLICASET}&retryWrites=true&w=majority`;
+    let mongoUrlK8sheadlessService6 = `mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_HOSTNAME}:${process.env.MONGO_PORT}/${process.env.MONGO_DB}?replicaSet=${process.env.MONGO_REPLICASET}&retryWrites=true&w=majority&authSource=admin`;
 
     // let mongoUrlK8sheadlessService = `mongodb://${process.env.USER_NAME}:${process.env.USER_PWD}@${process.env.DB_URL}/${process.env.Database_Name}?replicaSet=${process.env.replSetName},directConnection=true;readPreference=PrimaryPreferred`;
 
@@ -167,6 +169,33 @@ catch (e) {
 
 }
 
+
+try {
+    let mongoUrlK8sheadlessService7 = `mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_HOSTNAME}:${process.env.MONGO_PORT}/?replicaSet=${process.env.MONGO_REPLICASET}&authSource=admin`;
+
+    // let mongoUrlK8sheadlessService = `mongodb://${process.env.USER_NAME}:${process.env.USER_PWD}@${process.env.DB_URL}/${process.env.Database_Name}?replicaSet=${process.env.replSetName},directConnection=true;readPreference=PrimaryPreferred`;
+
+    console.log('mongoUrlK8sheadlessService =' + mongoUrlK8sheadlessService7);
+
+
+
+    //db connection with mongoose(mongodb)
+    mongoose4.connect(mongoUrlK8sheadlessService7, {
+        // dbName:${process.env.MONGO_DB},
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+    });
+
+    console.log("I CAN CONNECT Connection 7 !!")
+
+}
+catch (e) {
+
+    console.log("Error Connection 7 !!")
+
+    console.log(e);
+
+}
 
 
 /************************************************** */
