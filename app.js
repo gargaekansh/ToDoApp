@@ -90,7 +90,7 @@ var port = process.env.PORT || 3000;
 
 try {
     // const mongoUrlK8sheadlessService = `mongodb://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_HOSTNAME}:${process.env.MONGO_PORT}/${process.env.MONGO_DB}?replicaSet=${process.env.MONGO_REPLICASET}&authSource=admin`;
-    const mongoUrlK8sheadlessService = `mongodb://${process.env.MONGO_HOSTNAME}:${process.env.MONGO_PORT}/${process.env.MONGO_DB}\_?replicaSet=${process.env.MONGO_REPLICASET}`;
+    const mongoUrlK8sheadlessService = `mongodb://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_HOSTNAME}:${process.env.MONGO_PORT}/${process.env.MONGO_DB}\_?replicaSet=${process.env.MONGO_REPLICASET}&authSource=admin`;
 
     // let mongoUrlK8sheadlessService = `mongodb://${process.env.USER_NAME}:${process.env.USER_PWD}@${process.env.DB_URL}/${process.env.Database_Name}?replicaSet=${process.env.replSetName},directConnection=true;readPreference=PrimaryPreferred`;
 
@@ -123,7 +123,7 @@ try {
 
     // let mongoUrlK8sheadlessService5 = `mongodb://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_HOSTNAME}:${process.env.MONGO_PORT}/${process.env.MONGO_DB}?&retryWrites=true&w=majority`;
 
-    let mongoUrlK8sheadlessService5 = `mongodb+srv://${process.env.DB_URL}/${process.env.MONGO_DB}?&ssl=false?`;
+    let mongoUrlK8sheadlessService5 = `mongodb+srv://${process.env.DB_URL}/${process.env.MONGO_DB}?tls=false&ssl=false`;
 
     // let mongoUrlK8sheadlessService = `mongodb://${process.env.USER_NAME}:${process.env.USER_PWD}@${process.env.DB_URL}/${process.env.Database_Name}?replicaSet=${process.env.replSetName},directConnection=true;readPreference=PrimaryPreferred`;
 
@@ -153,7 +153,7 @@ catch (e) {
 
 try {
     // let mongoUrlK8sheadlessService6 = `mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_HOSTNAME}:${process.env.MONGO_PORT}/${process.env.MONGO_DB}?replicaSet=${process.env.MONGO_REPLICASET}&retryWrites=true&w=majority&authSource=admin`;
-    let mongoUrlK8sheadlessService6 = `mongodb+srv://${process.env.DB_URL}/${process.env.MONGO_DB}?&ssl=false?authSource=admin`;
+    let mongoUrlK8sheadlessService6 = `mongodb+srv://${process.env.DB_URL}/${process.env.MONGO_DB}?tls=false&ssl=false&authSource=admin`;
     // let mongoUrlK8sheadlessService = `mongodb://${process.env.USER_NAME}:${process.env.USER_PWD}@${process.env.DB_URL}/${process.env.Database_Name}?replicaSet=${process.env.replSetName},directConnection=true;readPreference=PrimaryPreferred`;
 
     console.log('mongoUrlK8sheadlessService =' + mongoUrlK8sheadlessService6);
@@ -209,7 +209,7 @@ catch (e) {
 
 try {
     // const mongoUrlK8sheadlessService = `mongodb://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_HOSTNAME}:${process.env.MONGO_PORT}/${process.env.MONGO_DB}?replicaSet=${process.env.MONGO_REPLICASET}&authSource=admin`;
-    let mongoUrlK8sheadlessService8 = `mongodb://${process.env.MONGO_HOSTNAME}:${process.env.MONGO_PORT}/?replicaSet=${process.env.MONGO_REPLICASET}`;
+    let mongoUrlK8sheadlessService8 = `mongodb://${process.env.MONGO_HOSTNAME}:${process.env.MONGO_PORT}/?replicaSet=${process.env.MONGO_REPLICASET}&authSource=admin`;
 
     // let mongoUrlK8sheadlessService = `mongodb://${process.env.USER_NAME}:${process.env.USER_PWD}@${process.env.DB_URL}/${process.env.Database_Name}?replicaSet=${process.env.replSetName},directConnection=true;readPreference=PrimaryPreferred`;
 
