@@ -6,10 +6,17 @@ var app = express();
 
 var port = process.env.PORT || 3000;
 
+const databasename = process.env.MONGO_DB;
 
 try {
 
-    let mongoUrlK8sheadlessService = `mongodb+srv://${process.env.DB_URL}/${process.env.MONGO_DB}?ssl=false&authSource=admin&retryWrites=true&w=majority`;
+    // let mongoUrlK8sheadlessService = `mongodb+srv://${process.env.DB_URL}/${process.env.MONGO_DB}?ssl=false&authSource=admin&retryWrites=true&w=majority`;
+   
+    //const mongoUrlK8sheadlessService = `mongodb://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_HOSTNAME}:${process.env.MONGO_PORT}/${process.env.MONGO_DB}?replicaSet=${process.env.MONGO_REPLICASET}&authSource=admin`;
+    const mongoUrlK8sheadlessService = `mongodb://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_HOSTNAME}:${process.env.MONGO_PORT}/${process.env.MONGO_DB}\_?replicaSet=${process.env.MONGO_REPLICASET}&authSource=admin`;
+
+//     // let mongoUrlK8sheadlessService = `mongodb://${process.env.USER_NAME}:${process.env.USER_PWD}@${process.env.DB_URL}/${process.env.Database_Name}?replicaSet=${process.env.replSetName},directConnection=true;readPreference=PrimaryPreferred`;
+
 
     console.log('mongoUrlK8sheadlessService =' + mongoUrlK8sheadlessService);
 
@@ -62,7 +69,7 @@ catch (error) {
 // Use the StatefulSet service name to reach any MongoDB pod
 // const fqdn = 'mongo-0.mongo.default.svc.cluster.local:27017';
 // const port = '27017';
-const databasename = process.env.MONGO_DB;
+
 // MongoDB StatefulSet replica set name
 //const replicaSetName = 'rs0';
 
