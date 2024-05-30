@@ -1,11 +1,11 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
-var mongoose1 = require('mongoose');
-var mongoose2 = require('mongoose');
-var mongoose3 = require('mongoose');
-var mongoose4 = require('mongoose');
-var mongoose5 = require('mongoose');
+// var mongoose1 = require('mongoose');
+// var mongoose2 = require('mongoose');
+// var mongoose3 = require('mongoose');
+// var mongoose4 = require('mongoose');
+// var mongoose5 = require('mongoose');
 
 var app = express();
 
@@ -88,80 +88,80 @@ var port = process.env.PORT || 3000;
 // }
 
 
-try {
-    // const mongoUrlK8sheadlessService = `mongodb://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_HOSTNAME}:${process.env.MONGO_PORT}/${process.env.MONGO_DB}?replicaSet=${process.env.MONGO_REPLICASET}&authSource=admin`;
-    const mongoUrlK8sheadlessService = `mongodb://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_HOSTNAME}:${process.env.MONGO_PORT}/${process.env.MONGO_DB}\_?replicaSet=${process.env.MONGO_REPLICASET}&authSource=admin`;
+// try {
+//     // const mongoUrlK8sheadlessService = `mongodb://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_HOSTNAME}:${process.env.MONGO_PORT}/${process.env.MONGO_DB}?replicaSet=${process.env.MONGO_REPLICASET}&authSource=admin`;
+//     const mongoUrlK8sheadlessService = `mongodb://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_HOSTNAME}:${process.env.MONGO_PORT}/${process.env.MONGO_DB}\_?replicaSet=${process.env.MONGO_REPLICASET}&authSource=admin`;
 
-    // let mongoUrlK8sheadlessService = `mongodb://${process.env.USER_NAME}:${process.env.USER_PWD}@${process.env.DB_URL}/${process.env.Database_Name}?replicaSet=${process.env.replSetName},directConnection=true;readPreference=PrimaryPreferred`;
+//     // let mongoUrlK8sheadlessService = `mongodb://${process.env.USER_NAME}:${process.env.USER_PWD}@${process.env.DB_URL}/${process.env.Database_Name}?replicaSet=${process.env.replSetName},directConnection=true;readPreference=PrimaryPreferred`;
 
-    console.log('mongoUrlK8sheadlessService =' + mongoUrlK8sheadlessService);
-
-
-
-    //db connection with mongoose(mongodb)
-    mongoose1.connect(mongoUrlK8sheadlessService, {
-        // dbName:${process.env.MONGO_DB},
-        useNewUrlParser: true,
-        useUnifiedTopology: true
-    });
-
-    console.log("I CAN CONNECT Connection 4 !!")
-
-}
-catch (e) {
-
-    console.log("Error Connection 4 !!")
-
-    console.log(e);
-
-}
-
-
-try {
-
-    //DB_URL
-
-    // let mongoUrlK8sheadlessService5 = `mongodb://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_HOSTNAME}:${process.env.MONGO_PORT}/${process.env.MONGO_DB}?&retryWrites=true&w=majority`;
-
-    let mongoUrlK8sheadlessService5 = `mongodb+srv://${process.env.DB_URL}/${process.env.MONGO_DB}?tls=false&ssl=false`;
-
-    // let mongoUrlK8sheadlessService = `mongodb://${process.env.USER_NAME}:${process.env.USER_PWD}@${process.env.DB_URL}/${process.env.Database_Name}?replicaSet=${process.env.replSetName},directConnection=true;readPreference=PrimaryPreferred`;
-
-    console.log('mongoUrlK8sheadlessService =' + mongoUrlK8sheadlessService5);
+//     console.log('mongoUrlK8sheadlessService =' + mongoUrlK8sheadlessService);
 
 
 
-    //db connection with mongoose(mongodb)
-    mongoose2.connect(mongoUrlK8sheadlessService5, {
-        // dbName:${process.env.MONGO_DB},
-        useNewUrlParser: true,
-        useUnifiedTopology: true
-    });
+//     //db connection with mongoose(mongodb)
+//     mongoose1.connect(mongoUrlK8sheadlessService, {
+//         // dbName:${process.env.MONGO_DB},
+//         useNewUrlParser: true,
+//         useUnifiedTopology: true
+//     });
 
-    console.log("I CAN CONNECT Connection 5 !!")
+//     console.log("I CAN CONNECT Connection 4 !!")
 
-}
-catch (e) {
+// }
+// catch (e) {
 
-    console.log("Error Connection 5 !!")
+//     console.log("Error Connection 4 !!")
 
-    console.log(e);
+//     console.log(e);
 
-}
+// }
+
+
+// try {
+
+//     //DB_URL
+
+//     // let mongoUrlK8sheadlessService5 = `mongodb://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_HOSTNAME}:${process.env.MONGO_PORT}/${process.env.MONGO_DB}?&retryWrites=true&w=majority`;
+
+//     let mongoUrlK8sheadlessService5 = `mongodb+srv://${process.env.DB_URL}/${process.env.MONGO_DB}?ssl=false`;
+
+//     // let mongoUrlK8sheadlessService = `mongodb://${process.env.USER_NAME}:${process.env.USER_PWD}@${process.env.DB_URL}/${process.env.Database_Name}?replicaSet=${process.env.replSetName},directConnection=true;readPreference=PrimaryPreferred`;
+
+//     console.log('mongoUrlK8sheadlessService5 =' + mongoUrlK8sheadlessService5);
+
+
+
+//     //db connection with mongoose(mongodb)
+//     mongoose2.connect(mongoUrlK8sheadlessService5, {
+//         // dbName:${process.env.MONGO_DB},
+//         useNewUrlParser: true,
+//         useUnifiedTopology: true
+//     });
+
+//     console.log("I CAN CONNECT Connection 5 !!")
+
+// }
+// catch (e) {
+
+//     console.log("Error Connection 5 !!")
+
+//     console.log(e);
+
+// }
 
 
 
 try {
     // let mongoUrlK8sheadlessService6 = `mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_HOSTNAME}:${process.env.MONGO_PORT}/${process.env.MONGO_DB}?replicaSet=${process.env.MONGO_REPLICASET}&retryWrites=true&w=majority&authSource=admin`;
-    let mongoUrlK8sheadlessService6 = `mongodb+srv://${process.env.DB_URL}/${process.env.MONGO_DB}?tls=false&ssl=false&authSource=admin`;
+    let mongoUrlK8sheadlessService6 = `mongodb+srv://${process.env.DB_URL}/${process.env.MONGO_DB}?ssl=false&authSource=admin`;
     // let mongoUrlK8sheadlessService = `mongodb://${process.env.USER_NAME}:${process.env.USER_PWD}@${process.env.DB_URL}/${process.env.Database_Name}?replicaSet=${process.env.replSetName},directConnection=true;readPreference=PrimaryPreferred`;
 
-    console.log('mongoUrlK8sheadlessService =' + mongoUrlK8sheadlessService6);
+    console.log('mongoUrlK8sheadlessService6 =' + mongoUrlK8sheadlessService6);
 
 
 
     //db connection with mongoose(mongodb)
-    mongoose3.connect(mongoUrlK8sheadlessService6, {
+    mongoose.connect(mongoUrlK8sheadlessService6, {
         // dbName:${process.env.MONGO_DB},
         useNewUrlParser: true,
         useUnifiedTopology: true
@@ -207,33 +207,33 @@ catch (e) {
 // }
 
 
-try {
-    // const mongoUrlK8sheadlessService = `mongodb://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_HOSTNAME}:${process.env.MONGO_PORT}/${process.env.MONGO_DB}?replicaSet=${process.env.MONGO_REPLICASET}&authSource=admin`;
-    let mongoUrlK8sheadlessService8 = `mongodb://${process.env.MONGO_HOSTNAME}:${process.env.MONGO_PORT}/?replicaSet=${process.env.MONGO_REPLICASET}&authSource=admin`;
+// try {
+//     // const mongoUrlK8sheadlessService = `mongodb://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_HOSTNAME}:${process.env.MONGO_PORT}/${process.env.MONGO_DB}?replicaSet=${process.env.MONGO_REPLICASET}&authSource=admin`;
+//     let mongoUrlK8sheadlessService8 = `mongodb://${process.env.MONGO_HOSTNAME}:${process.env.MONGO_PORT}/?replicaSet=${process.env.MONGO_REPLICASET}&authSource=admin`;
 
-    // let mongoUrlK8sheadlessService = `mongodb://${process.env.USER_NAME}:${process.env.USER_PWD}@${process.env.DB_URL}/${process.env.Database_Name}?replicaSet=${process.env.replSetName},directConnection=true;readPreference=PrimaryPreferred`;
+//     // let mongoUrlK8sheadlessService = `mongodb://${process.env.USER_NAME}:${process.env.USER_PWD}@${process.env.DB_URL}/${process.env.Database_Name}?replicaSet=${process.env.replSetName},directConnection=true;readPreference=PrimaryPreferred`;
 
-    console.log('mongoUrlK8sheadlessService =' + mongoUrlK8sheadlessService8);
+//     console.log('mongoUrlK8sheadlessService =' + mongoUrlK8sheadlessService8);
 
 
 
-    //db connection with mongoose(mongodb)
-    mongoose5.connect(mongoUrlK8sheadlessService8, {
-        // dbName:${process.env.MONGO_DB},
-        useNewUrlParser: true,
-        useUnifiedTopology: true
-    });
+//     //db connection with mongoose(mongodb)
+//     mongoose5.connect(mongoUrlK8sheadlessService8, {
+//         // dbName:${process.env.MONGO_DB},
+//         useNewUrlParser: true,
+//         useUnifiedTopology: true
+//     });
 
-    console.log("I CAN CONNECT Connection 8 !!")
+//     console.log("I CAN CONNECT Connection 8 !!")
 
-}
-catch (e) {
+// }
+// catch (e) {
 
-    console.log("Error Connection 8 !!")
+//     console.log("Error Connection 8 !!")
 
-    console.log(e);
+//     console.log(e);
 
-}
+// }
 
 
 /************************************************** */
