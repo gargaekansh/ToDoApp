@@ -13,12 +13,10 @@ try {
     // let mongoUrlK8sheadlessService = `mongodb+srv://${process.env.DB_URL}/${process.env.MONGO_DB}?ssl=false&authSource=admin&retryWrites=true&w=majority`;
    
     //const mongoUrlK8sheadlessService = `mongodb://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_HOSTNAME}:${process.env.MONGO_PORT}/${process.env.MONGO_DB}?replicaSet=${process.env.MONGO_REPLICASET}&authSource=admin`;
-    const mongoUrlK8sheadlessService = `mongodb://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_HOSTNAME}:${process.env.MONGO_PORT}/${process.env.MONGO_DB}\_?replicaSet=${process.env.MONGO_REPLICASET}&authSource=admin`;
-
-//     // let mongoUrlK8sheadlessService = `mongodb://${process.env.USER_NAME}:${process.env.USER_PWD}@${process.env.DB_URL}/${process.env.Database_Name}?replicaSet=${process.env.replSetName},directConnection=true;readPreference=PrimaryPreferred`;
+    const mongoUrlK8sheadlessService = `mongodb://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_HOSTNAME}:${process.env.MONGO_PORT}/${process.env.MONGO_DB}?replicaSet=${process.env.MONGO_REPLICASET}&authSource=admin`;
 
 
-    console.log('mongoUrlK8sheadlessService =' + mongoUrlK8sheadlessService);
+   // console.log('mongoUrlK8sheadlessService =' + mongoUrlK8sheadlessService);
 
 
 
@@ -41,63 +39,6 @@ catch (error) {
 }
 
 
-
-//"mongodb://user:password@mongodb-cluster:27000/dbname?replicaSet=&amp;authSource=$external&amp;authMechanism=PLAIN&amp;ssl=true&amp;sslVerifyCertificate=false&amp;maxPoolSize=5&amp;waitQueueMultiple=20&amp;readPreference=PrimaryPreferred" />
-
-// //  let mongoUrlK8s = `mongodb://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@${process.env.DB_URL}`
-
-// //  console.log ('mongoUrlK8s =' + mongoUrlK8s);
-
-
-// //  //TODO:: Remove after testing 
-
-// //  try {
-// //     await mongoose.connect(mongoUrlK8s, {
-// //         dbName:process.env.MONGO_DB,
-// //         useNewUrlParser: true,
-// //         useUnifiedTopology: true
-// //     });
-// //   } catch (error) {
-// //     console.log(error);
-// //   }
-
-// headless service - mongodb://user:pwd@mongodb-headless.svc.cluster.local:27017/dbname_?authSource=admin&replicaSet=rs0
-
-// Create the connection string with all replica set members
-//const uri = `mongodb://${username}:${password}@mongo-0.mongo-svc.default.svc.cluster.local:27017/${database}?replicaSet=${replicaSetName},directConnection=true`;
-
-// Use the StatefulSet service name to reach any MongoDB pod
-// const fqdn = 'mongo-0.mongo.default.svc.cluster.local:27017';
-// const port = '27017';
-
-// MongoDB StatefulSet replica set name
-//const replicaSetName = 'rs0';
-
-
-
-// //  const mongoUrlK8sheadlessService = `mongodb://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_HOSTNAME}:${process.env.MONGO_PORT}/${process.env.MONGO_DB}?replicaSet=${process.env.MONGO_REPLICASET}&authSource=admin`;
-
-// // // let mongoUrlK8sheadlessService = `mongodb://${process.env.USER_NAME}:${process.env.USER_PWD}@${process.env.DB_URL}/${process.env.Database_Name}?replicaSet=${process.env.replSetName},directConnection=true;readPreference=PrimaryPreferred`;
-
-// // console.log ('mongoUrlK8sheadlessService =' + mongoUrlK8sheadlessService);
-
-// use when starting application locally with node command
-//let mongoUrlLocal = "mongodb://admin:password@localhost:27017";
-
-//db connection with mongoose(mongodb)
-// //  mongoose.connect(mongoUrlK8sheadlessService, {
-// //     // dbName:${process.env.MONGO_DB},
-// //     useNewUrlParser: true,
-// //     useUnifiedTopology: true
-// // });
-
-
-// // // mongoose.connect("mongodb://localhost/todo", {
-// // //     dbName :'todos',
-// // //     useNewUrlParser: true,
-// // //     useUnifiedTopology: true
-// // // });
-
 //to get the css file from public folder
 app.use(express.static(__dirname + '/public'));
 
@@ -118,35 +59,6 @@ console.log("host " + Todo.db.host); // localhost
 console.log("port " + Todo.db.port); // 27017
 console.log("db.name " + Todo.db.name); // myDatabase
 
-
-
-//routes
-// app.get("/", (req, res)=>{
-//     ////Todo.find({}, (error, todoList)=>{
-//     //     if(error){
-//     //         console.log(error);
-//     //     }
-//         // else{
-//             console.log(`app.get`);
-
-//             const todoList = [
-//                 new Todo ( {  name: 'Ram'}) ,
-//                 new Todo ( {  name: 'Shyam' }),
-//                 new Todo({  name: 'Hari'})
-//               ];
-
-//               console.log(todoList); 
-
-
-//             // console.log(todoList);
-
-//             // var result = Object.entries(todoList);
-//             //    console.log(result);
-
-//             res.render("index.ejs", {todoList: todoList});
-//         // }
-//     // });
-// });
 
 
 //routes

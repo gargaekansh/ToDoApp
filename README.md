@@ -5,7 +5,6 @@ The project uses express routes to post update and delete the data in the mongod
 Features:
 Add a new task 
 Delete a tasks 
-Update tasks as done
 Delete all the tasks
 
 
@@ -13,9 +12,12 @@ Delete all the tasks
 # Github Repository Link
   https://github.com/gargaekansh/ToDoApp.git
 
+  # YAML Files
 
-  # Dockerhub Image Links  
 
-     gargaekansh/todoapp:tag3   
+  # WebApp Dockerhub Image Links  
+
+     gargaekansh/todoapp:tag10   
      
   # API URLs
+      http://34.121.103.116:30100/
