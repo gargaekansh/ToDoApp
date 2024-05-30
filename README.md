@@ -13,11 +13,26 @@ Delete all the tasks
   https://github.com/gargaekansh/ToDoApp.git
 
   # YAML Files
-
+    
+    https://github.com/gargaekansh/ToDoApp/tree/main/YAML
 
   # WebApp Dockerhub Image Links  
 
-     gargaekansh/todoapp:tag10   
+     https://hub.docker.com/repository/docker/gargaekansh/todoapp/general  
+
+   # Mongo DB Dockerhub Image Links  
+
+       https://hub.docker.com/_/mongo
      
-  # API URLs
-      http://34.121.103.116:30100/
+   #  URLs
+     GET  http://34.121.103.116:30100/
+
+      POST http://34.121.103.116:30100/newtodo
+
+         Payload:
+      {
+
+           task: 'Task Name'
+
+
+      }
