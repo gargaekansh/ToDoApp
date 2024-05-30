@@ -1,244 +1,37 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
-// var mongoose1 = require('mongoose');
-// var mongoose2 = require('mongoose');
-// var mongoose3 = require('mongoose');
-// var mongoose4 = require('mongoose');
-// var mongoose5 = require('mongoose');
 
 var app = express();
 
 var port = process.env.PORT || 3000;
 
 
-/***********TEST MONGO CONNECTION CODE ********* */
-
-// let MongoClient1 = require('mongodb').MongoClient;
-// let MongoClient2 = require('mongodb').MongoClient;
-// let MongoClient3 = require('mongodb').MongoClient;
-// //let MongoClient4 = require('mongodb').MongoClient;
-
-// try {
-
-//     // MongoClient1.connect("mongodb://mongouser:mongopassword@mongo-0.mongo.default.svc.cluster.local:27017/todos", function (err, db) {
-//         MongoClient1.connect("mongodb://mongo-0.mongo.default.svc.cluster.local:27017/todos", function (err, db) {
-
-//         if (err) {
-//             console.log("Connection 1 Error" +  err)
-//             throw err;
-//         }
-
-//         console.log("I CAN CONNECT Connection 1 !!")
-
-//     });
-
-// }
-// catch (e) {
-
-//     console.log("Error Connection 1 !!")
-//     console.log(e);
-
-// }
-
-
-// try {
-
-//     MongoClient2.connect("mongodb://mongouser:mongopassword@mongo.default.svc.cluster.local:27017/todos", function (err, db) {
-
-//         if (err) {
-//             console.log("Connection 2 Error" +  err)
-//             throw err;
-//         }
-
-//         console.log("I CAN CONNECT Connection 2 !!")
-
-//     });
-
-// }
-// catch (e) {
-
-//     console.log("Error Connection 2 !!")
-
-//     console.log(e);
-
-// }
-
-
-// try {
-
-//     MongoClient3.connect("mongodb+srv://mongouser:mongopassword@mongo.default.svc.cluster.local/todos", function (err, db) {
-
-//         if (err) {
-//             console.log("Connection 3 Error" +  err)
-//             throw err;
-//         }
-
-//         console.log("I CAN CONNECT Connection 3 !!")
-
-//     });
-
-// }
-// catch (e) {
-
-//     console.log("Error Connection 3 !!")
-
-//     console.log(e);
-
-// }
-
-
-// try {
-//     // const mongoUrlK8sheadlessService = `mongodb://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_HOSTNAME}:${process.env.MONGO_PORT}/${process.env.MONGO_DB}?replicaSet=${process.env.MONGO_REPLICASET}&authSource=admin`;
-//     const mongoUrlK8sheadlessService = `mongodb://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_HOSTNAME}:${process.env.MONGO_PORT}/${process.env.MONGO_DB}\_?replicaSet=${process.env.MONGO_REPLICASET}&authSource=admin`;
-
-//     // let mongoUrlK8sheadlessService = `mongodb://${process.env.USER_NAME}:${process.env.USER_PWD}@${process.env.DB_URL}/${process.env.Database_Name}?replicaSet=${process.env.replSetName},directConnection=true;readPreference=PrimaryPreferred`;
-
-//     console.log('mongoUrlK8sheadlessService =' + mongoUrlK8sheadlessService);
-
-
-
-//     //db connection with mongoose(mongodb)
-//     mongoose1.connect(mongoUrlK8sheadlessService, {
-//         // dbName:${process.env.MONGO_DB},
-//         useNewUrlParser: true,
-//         useUnifiedTopology: true
-//     });
-
-//     console.log("I CAN CONNECT Connection 4 !!")
-
-// }
-// catch (e) {
-
-//     console.log("Error Connection 4 !!")
-
-//     console.log(e);
-
-// }
-
-
-// try {
-
-//     //DB_URL
-
-//     // let mongoUrlK8sheadlessService5 = `mongodb://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_HOSTNAME}:${process.env.MONGO_PORT}/${process.env.MONGO_DB}?&retryWrites=true&w=majority`;
-
-//     let mongoUrlK8sheadlessService5 = `mongodb+srv://${process.env.DB_URL}/${process.env.MONGO_DB}?ssl=false`;
-
-//     // let mongoUrlK8sheadlessService = `mongodb://${process.env.USER_NAME}:${process.env.USER_PWD}@${process.env.DB_URL}/${process.env.Database_Name}?replicaSet=${process.env.replSetName},directConnection=true;readPreference=PrimaryPreferred`;
-
-//     console.log('mongoUrlK8sheadlessService5 =' + mongoUrlK8sheadlessService5);
-
-
-
-//     //db connection with mongoose(mongodb)
-//     mongoose2.connect(mongoUrlK8sheadlessService5, {
-//         // dbName:${process.env.MONGO_DB},
-//         useNewUrlParser: true,
-//         useUnifiedTopology: true
-//     });
-
-//     console.log("I CAN CONNECT Connection 5 !!")
-
-// }
-// catch (e) {
-
-//     console.log("Error Connection 5 !!")
-
-//     console.log(e);
-
-// }
-
-
-
 try {
-    // let mongoUrlK8sheadlessService6 = `mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_HOSTNAME}:${process.env.MONGO_PORT}/${process.env.MONGO_DB}?replicaSet=${process.env.MONGO_REPLICASET}&retryWrites=true&w=majority&authSource=admin`;
-    let mongoUrlK8sheadlessService6 = `mongodb+srv://${process.env.DB_URL}/${process.env.MONGO_DB}?ssl=false&authSource=admin`;
-    // let mongoUrlK8sheadlessService = `mongodb://${process.env.USER_NAME}:${process.env.USER_PWD}@${process.env.DB_URL}/${process.env.Database_Name}?replicaSet=${process.env.replSetName},directConnection=true;readPreference=PrimaryPreferred`;
 
-    console.log('mongoUrlK8sheadlessService6 =' + mongoUrlK8sheadlessService6);
+    let mongoUrlK8sheadlessService = `mongodb+srv://${process.env.DB_URL}/${process.env.MONGO_DB}?ssl=false&authSource=admin&retryWrites=true&w=majority`;
+
+    console.log('mongoUrlK8sheadlessService =' + mongoUrlK8sheadlessService);
 
 
 
     //db connection with mongoose(mongodb)
-    mongoose.connect(mongoUrlK8sheadlessService6, {
+    mongoose.connect(mongoUrlK8sheadlessService, {
         // dbName:${process.env.MONGO_DB},
         useNewUrlParser: true,
         useUnifiedTopology: true
     });
 
-    console.log("I CAN CONNECT Connection 6 !!")
+    console.log("I CAN CONNECT !!")
 
 }
-catch (e) {
+catch (error) {
 
-    console.log("Error Connection 6 !!")
+    console.log("Error Connection  !!")
 
-    console.log(e);
+    console.log(error);
 
 }
-
-
-// try {
-//     let mongoUrlK8sheadlessService7 = `mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_HOSTNAME}:${process.env.MONGO_PORT}/?replicaSet=${process.env.MONGO_REPLICASET}&authSource=admin`;
-
-//     // let mongoUrlK8sheadlessService = `mongodb://${process.env.USER_NAME}:${process.env.USER_PWD}@${process.env.DB_URL}/${process.env.Database_Name}?replicaSet=${process.env.replSetName},directConnection=true;readPreference=PrimaryPreferred`;
-
-//     console.log('mongoUrlK8sheadlessService =' + mongoUrlK8sheadlessService7);
-
-
-
-//     //db connection with mongoose(mongodb)
-//     mongoose4.connect(mongoUrlK8sheadlessService7, {
-//         // dbName:${process.env.MONGO_DB},
-//         useNewUrlParser: true,
-//         useUnifiedTopology: true
-//     });
-
-//     console.log("I CAN CONNECT Connection 7 !!")
-
-// }
-// catch (e) {
-
-//     console.log("Error Connection 7 !!")
-
-//     console.log(e);
-
-// }
-
-
-// try {
-//     // const mongoUrlK8sheadlessService = `mongodb://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_HOSTNAME}:${process.env.MONGO_PORT}/${process.env.MONGO_DB}?replicaSet=${process.env.MONGO_REPLICASET}&authSource=admin`;
-//     let mongoUrlK8sheadlessService8 = `mongodb://${process.env.MONGO_HOSTNAME}:${process.env.MONGO_PORT}/?replicaSet=${process.env.MONGO_REPLICASET}&authSource=admin`;
-
-//     // let mongoUrlK8sheadlessService = `mongodb://${process.env.USER_NAME}:${process.env.USER_PWD}@${process.env.DB_URL}/${process.env.Database_Name}?replicaSet=${process.env.replSetName},directConnection=true;readPreference=PrimaryPreferred`;
-
-//     console.log('mongoUrlK8sheadlessService =' + mongoUrlK8sheadlessService8);
-
-
-
-//     //db connection with mongoose(mongodb)
-//     mongoose5.connect(mongoUrlK8sheadlessService8, {
-//         // dbName:${process.env.MONGO_DB},
-//         useNewUrlParser: true,
-//         useUnifiedTopology: true
-//     });
-
-//     console.log("I CAN CONNECT Connection 8 !!")
-
-// }
-// catch (e) {
-
-//     console.log("Error Connection 8 !!")
-
-//     console.log(e);
-
-// }
-
-
-/************************************************** */
-
-
 
 
 
@@ -314,9 +107,9 @@ var todoSchema = new mongoose.Schema({
 
 var Todo = mongoose.model("Todo", todoSchema);
 
-console.log("host" + Todo.db.host); // localhost
+console.log("host " + Todo.db.host); // localhost
 console.log("port " + Todo.db.port); // 27017
-console.log("db.name" + Todo.db.name); // myDatabase
+console.log("db.name " + Todo.db.name); // myDatabase
 
 
 
@@ -350,66 +143,66 @@ console.log("db.name" + Todo.db.name); // myDatabase
 
 
 //routes
-// // app.get("/", (req, res)=>{
-// //     Todo.find({}, (error, todoList)=>{
-// //         if(error){
-// //             console.log(error);
-// //         }
-// //         else{
-// //             res.render("index.ejs", {todoList: todoList});
-// //         }
-// //     });
-// // });
+app.get("/", (req, res)=>{
+    Todo.find({}, (error, todoList)=>{
+        if(error){
+            console.log(error);
+        }
+        else{
+            res.render("index.ejs", {todoList: todoList});
+        }
+    });
+});
 
 
 //route for adding new task
-// // app.post("/newtodo", (req, res)=>{
-// //     var newTask = new Todo({
-// //         name: req.body.task
-// //     });
+app.post("/newtodo", (req, res)=>{
+    var newTask = new Todo({
+        name: req.body.task
+    });
 
-// // console.log(newTask);
+console.log(newTask);
 
-// //     //add to db
-// //     Todo.create(newTask, (err, Todo)=>{
-// //         if(err){
-// //             console.log(err);
-// //         }
-// //         else{
-// //             console.log(`inserted ${newTask} to the database todo`);
-// //             res.redirect("/");
-// //         }
-// //     });
-// // });
+    //add to db
+    Todo.create(newTask, (err, Todo)=>{
+        if(err){
+            console.log(err);
+        }
+        else{
+            console.log(`inserted ${newTask} to the database todo`);
+            res.redirect("/");
+        }
+    });
+});
 
 //route to delete a task by id
-// // app.get("/delete/:id", (req, res)=>{
-// //     var taskId = req.params.id;//get the id from the api 
-// //     console.log(req.params.id);
-// //     mongoose.model('Todo').deleteOne({_id: taskId}, (err, result)=>{
-// //         if(err){
-// //             console.log(`Error is deleting the task ${taskId}`);
-// //         }
-// //         else{
-// //             console.log("Task successfully deleted from database");
-// //             res.redirect("/");
-// //         }
-// //     });
-// // });
+app.get("/delete/:id", (req, res)=>{
+    var taskId = req.params.id;//get the id from the api 
+    console.log(req.params.id);
+    mongoose.model('Todo').deleteOne({_id: taskId}, (err, result)=>{
+        if(err){
+            console.log(`Error is deleting the task ${taskId}`);
+        }
+        else{
+            console.log("Task successfully deleted from database");
+            res.redirect("/");
+        }
+    });
+});
 
 //route for deleting all tasks
-// // app.post("/delAlltodo", (req, res)=>{
-// //     var myquery = { name: /^O/ };
-// //     mongoose.model('Todo').deleteMany({}, (err, result)=>{
-// //         if(err){
-// //             console.log(err);
-// //         }
-// //         else{
-// //             console.log(`Deleted all tasks`);
-// //             res.redirect("/");
-// //         }
-// //     });
-// // });
+app.post("/delAlltodo", (req, res)=>{
+    var myquery = { name: /^O/ };
+    mongoose.model('Todo').deleteMany({}, (err, result)=>{
+        if(err){
+            console.log(err);
+        }
+        else{
+            console.log(`Deleted all tasks`);
+            res.redirect("/");
+        }
+    });
+});
 
 //catch the invalid get requests
 app.get("*", (req, res) => {
