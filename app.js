@@ -1,9 +1,11 @@
 var express = require('express');
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
 var mongoose1 = require('mongoose');
 var mongoose2 = require('mongoose');
 var mongoose3 = require('mongoose');
 var mongoose4 = require('mongoose');
+var mongoose5 = require('mongoose');
 
 var app = express();
 
@@ -19,10 +21,11 @@ let MongoClient3 = require('mongodb').MongoClient;
 
 try {
 
-    MongoClient1.connect("mongodb://mongouser:mongopassword@mongo-0.mongo.default.svc.cluster.local:27017/todos", function (err, db) {
+    // MongoClient1.connect("mongodb://mongouser:mongopassword@mongo-0.mongo.default.svc.cluster.local:27017/todos", function (err, db) {
+        MongoClient1.connect("mongodb://mongo-0.mongo.default.svc.cluster.local:27017/todos", function (err, db) {
 
         if (err) {
-            console.log(err)
+            console.log("Connection 1 Error" +  err)
             throw err;
         }
 
@@ -44,7 +47,7 @@ try {
     MongoClient2.connect("mongodb://mongouser:mongopassword@mongo.default.svc.cluster.local:27017/todos", function (err, db) {
 
         if (err) {
-            console.log(err)
+            console.log("Connection 2 Error" +  err)
             throw err;
         }
 
@@ -64,10 +67,10 @@ catch (e) {
 
 try {
 
-    MongoClient3.connect("mongodb+srv://mongouser:mongopassword@mongo.default.svc.cluster.local:27017/todos", function (err, db) {
+    MongoClient3.connect("mongodb+srv://mongouser:mongopassword@mongo.default.svc.cluster.local/todos", function (err, db) {
 
         if (err) {
-            console.log(err)
+            console.log("Connection 3 Error" +  err)
             throw err;
         }
 
@@ -86,7 +89,8 @@ catch (e) {
 
 
 try {
-    const mongoUrlK8sheadlessService = `mongodb://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_HOSTNAME}:${process.env.MONGO_PORT}/${process.env.MONGO_DB}?replicaSet=${process.env.MONGO_REPLICASET}&authSource=admin`;
+    // const mongoUrlK8sheadlessService = `mongodb://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_HOSTNAME}:${process.env.MONGO_PORT}/${process.env.MONGO_DB}?replicaSet=${process.env.MONGO_REPLICASET}&authSource=admin`;
+    const mongoUrlK8sheadlessService = `mongodb://${process.env.MONGO_HOSTNAME}:${process.env.MONGO_PORT}/${process.env.MONGO_DB}?replicaSet=${process.env.MONGO_REPLICASET}`;
 
     // let mongoUrlK8sheadlessService = `mongodb://${process.env.USER_NAME}:${process.env.USER_PWD}@${process.env.DB_URL}/${process.env.Database_Name}?replicaSet=${process.env.replSetName},directConnection=true;readPreference=PrimaryPreferred`;
 
@@ -192,6 +196,35 @@ try {
 catch (e) {
 
     console.log("Error Connection 7 !!")
+
+    console.log(e);
+
+}
+
+
+try {
+    // const mongoUrlK8sheadlessService = `mongodb://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_HOSTNAME}:${process.env.MONGO_PORT}/${process.env.MONGO_DB}?replicaSet=${process.env.MONGO_REPLICASET}&authSource=admin`;
+    let mongoUrlK8sheadlessService8 = `mongodb://${process.env.MONGO_HOSTNAME}:${process.env.MONGO_PORT}/?replicaSet=${process.env.MONGO_REPLICASET}`;
+
+    // let mongoUrlK8sheadlessService = `mongodb://${process.env.USER_NAME}:${process.env.USER_PWD}@${process.env.DB_URL}/${process.env.Database_Name}?replicaSet=${process.env.replSetName},directConnection=true;readPreference=PrimaryPreferred`;
+
+    console.log('mongoUrlK8sheadlessService =' + mongoUrlK8sheadlessService8);
+
+
+
+    //db connection with mongoose(mongodb)
+    mongoose5.connect(mongoUrlK8sheadlessService8, {
+        // dbName:${process.env.MONGO_DB},
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+    });
+
+    console.log("I CAN CONNECT Connection 8 !!")
+
+}
+catch (e) {
+
+    console.log("Error Connection 8 !!")
 
     console.log(e);
 
