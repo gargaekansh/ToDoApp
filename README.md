@@ -2,10 +2,10 @@
 
 The project uses express routes to post update and delete the data in the mongodb database and subsequently render results 
 
-Features:
-Add a new task 
-Delete a tasks 
-Delete all the tasks
+    Features:
+    Get All Todos Items
+    Add a new Todo Item 
+    Delete all the Todos Items
 
 
 
@@ -24,15 +24,39 @@ Delete all the tasks
 
        https://hub.docker.com/_/mongo
      
-   #  URLs
-     GET  http://34.121.103.116:30100/
-
-      POST http://34.121.103.116:30100/newtodo
-
-         Payload:
-      {
-
-           task: 'Task Name'
+   #  Mongo Deployment URLs
 
 
-      }
+     GET  http://34.121.103.116:30100/api/todos
+
+     POST http://34.121.103.116:30100/api/todos
+
+       Content-Type: application/json
+
+        Payload:
+
+        {
+            "task": "First Todo Item"
+        }
+
+
+      DELETE  http://localhost:3000/api/todos
+
+  #  Local Deployment URLs
+
+      GET http://localhost:3000/api/todos
+
+
+      POST http://localhost:3000/api/todos
+
+        Content-Type: application/json
+
+        Payload:
+
+        {
+            "task": "Second Todo Item"
+        }
+
+
+        
+       DELETE  http://localhost:3000/api/todos

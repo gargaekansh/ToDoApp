@@ -9,7 +9,3 @@ const todoSchema = new mongoose.Schema({
 
 module.exports = mongoose.model('Todo', todoSchema)
 
-
-// name: { type: String, required: true }
-
-//var Todo = mongoose.model("Todo", todoSchema);

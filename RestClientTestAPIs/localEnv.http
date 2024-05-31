@@ -1,0 +1,16 @@
+GET http://localhost:3000/api/todos
+
+
+###
+
+POST http://localhost:3000/api/todos
+Content-Type: application/json
+
+{
+    "task": "Second Todo Item"
+}
+
+
+###
+
+DELETE  http://localhost:3000/api/todos
