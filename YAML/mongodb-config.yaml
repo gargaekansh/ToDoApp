@@ -6,7 +6,7 @@ immutable: false
 data:
   mongo_url:  "mongo.default.svc.cluster.local"
   mongo_portnumber: "27017"
-  mongo_db: "todos"
+  mongo_db: "tododb"
   mongo_hostname: "mongo-0.mongo.default.svc.cluster.local"
   mongo_replicaset: "rs0"
   mongodb.conf: |
