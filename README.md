@@ -40,7 +40,8 @@ The project uses express routes to post update and delete the data in the mongod
         }
 
 
-      DELETE  http://localhost:3000/api/todos
+     DELETE  http://localhost:3000/api/todos
+     
 
   #  Local Deployment URLs
 
@@ -60,3 +61,43 @@ The project uses express routes to post update and delete the data in the mongod
 
         
        DELETE  http://localhost:3000/api/todos
+
+
+  #  firewall rule to allow TCP traffic on  node port
+
+     gcloud compute firewall-rules create test-node-port \
+    --allow tcp:30100     
+
+
+  #  screen recording video Location 
+
+
+
+
+  #  screen recording video description       
+
+       1)  "01_GKE_ all objects deployed and running" 
+
+                  Overall setup of the system.
+
+                  Show all objects deployed and running.
+
+       
+       2)  "02_DatabaseDeployment"    
+
+                   Everything is correctly deployed for database.
+
+           
+      
+       3)  "03_Retrieve records from db"
+
+                    Run API and retrieve records from db.
+
+       
+       
+       4)  "04_Deleting db pods doesn’t delete data from db"
+
+                     deleting db pods doesn’t delete data from db.
+
+
+      
