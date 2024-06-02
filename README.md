@@ -12,7 +12,7 @@ The project uses express routes to post update and delete the data in the mongod
 # Github Repository Link
   https://github.com/gargaekansh/ToDoApp.git
 
-  # YAML Files
+  # YAML Files Location
     
     https://github.com/gargaekansh/ToDoApp/tree/main/YAML
 
@@ -23,8 +23,34 @@ The project uses express routes to post update and delete the data in the mongod
    # Mongo DB Dockerhub Image Links  
 
        https://hub.docker.com/_/mongo
+
+       
+
+   # Mongo DB Configuration on Kubernates
+
+       1):-    kubectl exec -it mongo-0 -- mongo
+
+
+        2):-  rs.initiate({
+                "_id" : "rs0",
+                "members" : [
+                        {
+                                "_id" : 0,
+                                "host" : "mongo-0.mongo.default.svc.cluster.local:27017",
+                        }
+                ]
+        })
+
+       3):-   use admin
+
+        4):-    db.createUser({
+                user: "mongouser",
+                pwd: "mongopassword",
+                roles: [ { role: "dbOwner", db: "admin" } ]
+            })
+
      
-   #  Mongo Deployment URLs
+   #  URL for Service API tier to view the records from backend tier.
 
 
      GET  http://34.121.103.116:30100/api/todos
@@ -40,7 +66,7 @@ The project uses express routes to post update and delete the data in the mongod
         }
 
 
-     DELETE  http://localhost:3000/api/todos
+     DELETE  http://34.121.103.116:30100/api/todos
      
 
   #  Local Deployment URLs
@@ -76,20 +102,20 @@ The project uses express routes to post update and delete the data in the mongod
 
   #  screen recording video description       
 
-       1)  "01_GKE_ all objects deployed and running" 
+       1)  "01_GKE_ all objects deployed and running.mp4" 
 
                   Overall setup of the system.
 
                   Show all objects deployed and running.
 
        
-       2)  "02_DatabaseDeployment"    
+       2)  "02_DatabaseDeployment.mp4"    
 
                    Everything is correctly deployed for database.
 
            
       
-       3)  "03_Retrieve records from db"
+       3)  "03_Retrieve records from db.mp4"
 
                     Run API and retrieve records from db.
 
@@ -98,6 +124,10 @@ The project uses express routes to post update and delete the data in the mongod
        4)  "04_Deleting db pods doesn’t delete data from db"
 
                      deleting db pods doesn’t delete data from db.
+
+       5)  "05_rolling update.mp4"  
+
+                     rolling update for API service pods.            
 
 
       
