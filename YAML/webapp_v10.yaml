@@ -6,6 +6,9 @@ metadata:
     app: webapptodo
 spec:
   replicas: 3
+  revisionHistoryLimit: 5 # for RollingUpdate
+  minReadySeconds: 5 # for RollingUpdate
+  progressDeadlineSeconds: 600 # for RollingUpdate
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -22,6 +25,7 @@ spec:
       containers:
       - name: webapptodo
         image: gargaekansh/todoapp:tag10
+        # image: gargaekansh/todoapp:tag11 # for RollingUpdate
         imagePullPolicy: Always 
         ports:
         - containerPort: 3000
