@@ -95,8 +95,9 @@ The project uses express routes to post update and delete the data in the mongod
     --allow tcp:30100     
 
 
-  #  screen recording video Location 
+  #  screen recording video Location Sharepoint
 
+         https://nagarro-my.sharepoint.com/:f:/p/akansh_garg/ElgOIzMEEqhPg-eq1bpfaVoBtMeQ6rPfOzaQTte6fuCq7g?e=pbhTFR
 
 
 
@@ -111,15 +112,11 @@ The project uses express routes to post update and delete the data in the mongod
        
        2)  "02_DatabaseDeployment.mp4"    
 
-                   Everything is correctly deployed for database.
-
-           
+                   Everything is correctly deployed for database.     
       
        3)  "03_Retrieve records from db.mp4"
 
-                    Run API and retrieve records from db.
-
-       
+                    Run API and retrieve records from db. 
        
        4)  "04_Deleting db pods doesn’t delete data from db"
 
@@ -127,7 +124,11 @@ The project uses express routes to post update and delete the data in the mongod
 
        5)  "05_rolling update.mp4"  
 
-                     rolling update for API service pods.            
+                     rolling update for API service pods.  
+
+       6)  "06_Horizontal Pod Autoscaler.mp4"
+
+                     Horizontal Pod Autoscaler in action Using Postman.                        
 
 
       
