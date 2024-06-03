@@ -26,7 +26,7 @@ The project uses express routes to post update and delete the data in the mongod
 
        
 
-   # Mongo DB Configuration on Kubernates
+   # Mongo DB initialization & Configuration on Kubernates before runnning API 
 
        1):-    kubectl exec -it mongo-0 -- mongo
 
